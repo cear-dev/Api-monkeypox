@@ -1,23 +1,19 @@
 import { Request, Response } from 'express';
 import CaseModel from '../models/case.model';
-import { sendEmail } from '../services/email.service';
 
-// Crear un nuevo caso
 export const createCase = async (req: Request, res: Response) => {
     try {
       const { lat, lng, genre, age, symptoms } = req.body;
   
-      // Crear el nuevo caso con isSent: false para que el cron job lo detecte después
       const newCase = new CaseModel({
         lat,
         lng,
         genre,
         age,
         symptoms,
-        isSent: false  // Dejar que el cron job maneje el envío del correo
+        isSent: false  
       });
   
-      // Guardar el nuevo caso en la base de datos
       const savedCase = await newCase.save();
   
       res.status(201).json(savedCase);
@@ -26,7 +22,6 @@ export const createCase = async (req: Request, res: Response) => {
     }
   };
 
-// Obtener todos los casos
 export const getAllCases = async (req: Request, res: Response) => {
   try {
     const cases = await CaseModel.find();
@@ -36,7 +31,6 @@ export const getAllCases = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener casos de la última semana
 export const getRecentCases = async (req: Request, res: Response) => {
   try {
     const oneWeekAgo = new Date();
@@ -49,7 +43,6 @@ export const getRecentCases = async (req: Request, res: Response) => {
   }
 };
 
-// Actualizar un caso
 export const updateCase = async (req: Request, res: Response) => {
   try {
     const caseId = req.params.id;
@@ -65,7 +58,6 @@ export const updateCase = async (req: Request, res: Response) => {
   }
 };
 
-// Eliminar un caso
 export const deleteCase = async (req: Request, res: Response) => {
   try {
     const caseId = req.params.id;

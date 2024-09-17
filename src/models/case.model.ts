@@ -6,7 +6,7 @@ interface ICase extends Document {
   isSent: boolean;
   genre: string;
   age: number;
-  symptoms: string;  // Campo para los síntomas
+  symptoms: string;
   creationDate: Date;
 }
 
@@ -16,7 +16,7 @@ const caseSchema = new Schema<ICase>({
   isSent: { type: Boolean, required: true, default: false },
   genre: { type: String, required: true },
   age: { type: Number, required: true },
-  symptoms: { type: String, required: true },  // Definimos los síntomas como un string obligatorio
+  symptoms: { type: String, required: true },
   creationDate: { type: Date, default: Date.now }
 });
 

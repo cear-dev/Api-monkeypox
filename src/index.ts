@@ -51,7 +51,7 @@ cron.schedule('*/10 * * * * *', async () => {
         caseItem.symptoms
       );
     
-      await sendEmail('Nuevo caso registrado', emailBody);
+      await sendEmail('Nuevo caso registo', emailBody);
     
       // Actualizar el campo isSent a true después de enviar el correo
       caseItem.isSent = true;
