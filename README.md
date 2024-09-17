@@ -3,4 +3,4 @@
 # Instalar dependencias
 npm install
 
-# Crear variables de entorno
+# Crear carpeta variables de entorno
