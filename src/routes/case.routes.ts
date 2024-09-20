@@ -3,10 +3,10 @@ import { createCase, getAllCases, getRecentCases, updateCase, deleteCase } from 
 
 const router = Router();
 
-router.post('/cases', createCase);
-router.get('/cases', getAllCases);
-router.get('/cases/recent', getRecentCases);
-router.put('/cases/:id', updateCase);
-router.delete('/cases/:id', deleteCase);
+router.post('/casos', createCase);
+router.get('/casos', getAllCases);
+router.get('/casos/recent', getRecentCases);
+router.put('/casos/:id', updateCase);
+router.delete('/casos/:id', deleteCase);
 
 export default router;
